@@ -1,0 +1,138 @@
+systemd-+-ModemManager-+-{gdbus}
+        |              `-{gmain}
+        |-NetworkManager-+-{NetworkManager}
+        |                |-{gdbus}
+        |                `-{gmain}
+        |-accounts-daemon-+-{gdbus}
+        |                 `-{gmain}
+        |-acpid
+        |-agetty
+        |-apache2-+-apache2
+        |         `-2*[apache2---26*[{apache2}]]
+        |-at-spi-bus-laun-+-dbus-daemon
+        |                 |-{dconf worker}
+        |                 |-{gdbus}
+        |                 `-{gmain}
+        |-at-spi2-registr---{gdbus}
+        |-atd
+        |-avahi-daemon---avahi-daemon
+        |-bluetoothd
+        |-colord-+-{gdbus}
+        |        `-{gmain}
+        |-cron
+        |-2*[dbus-daemon]
+        |-dbus-launch
+        |-dconf-service-+-{gdbus}
+        |               `-{gmain}
+        |-evolution-calen-+-{dconf worker}
+        |                 |-{evolution-calen}
+        |                 |-{gdbus}
+        |                 |-{gmain}
+        |                 `-{pool}
+        |-evolution-sourc-+-{gdbus}
+        |                 `-{gmain}
+        |-exim4
+        |-gconfd-2
+        |-gdm3-+-Xorg
+        |      |-gdm-session-wor-+-gnome-session-c-+-gnome-session-+-evolution-alarm-+-{cal-client-dbus}
+        |      |                 |                 |               |                 |-{dconf worker}
+        |      |                 |                 |               |                 |-{evolution-alarm}
+        |      |                 |                 |               |                 `-{gdbus}
+        |      |                 |                 |               |-gnome-settings--+-{dconf worker}
+        |      |                 |                 |               |                 |-{gdbus}
+        |      |                 |                 |               |                 |-{gmain}
+        |      |                 |                 |               |                 `-{pool}
+        |      |                 |                 |               |-gnome-shell-+-{JS GC Helper}
+        |      |                 |                 |               |             |-{JS Sour~ Thread}
+        |      |                 |                 |               |             |-{dconf worker}
+        |      |                 |                 |               |             |-{gdbus}
+        |      |                 |                 |               |             |-{gmain}
+        |      |                 |                 |               |             `-{threaded-ml}
+        |      |                 |                 |               |-nm-applet-+-{dconf worker}
+        |      |                 |                 |               |           `-{gdbus}
+        |      |                 |                 |               |-tracker-extract-+-{dconf worker}
+        |      |                 |                 |               |                 |-{gdbus}
+        |      |                 |                 |               |                 |-{gmain}
+        |      |                 |                 |               |                 `-10*[{pool}]
+        |      |                 |                 |               |-tracker-miner-a-+-{gdbus}
+        |      |                 |                 |               |                 `-{gmain}
+        |      |                 |                 |               |-tracker-miner-f-+-{dconf worker}
+        |      |                 |                 |               |                 |-{gdbus}
+        |      |                 |                 |               |                 `-{gmain}
+        |      |                 |                 |               |-tracker-miner-u-+-{gdbus}
+        |      |                 |                 |               |                 `-{gmain}
+        |      |                 |                 |               |-{dconf worker}
+        |      |                 |                 |               |-{gdbus}
+        |      |                 |                 |               `-{gmain}
+        |      |                 |                 `-ssh-agent
+        |      |                 |-{gdbus}
+        |      |                 `-{gmain}
+        |      |-{gdbus}
+        |      |-{gdm SIGUSR1 cat}
+        |      `-{gmain}
+        |-gnome-keyring-d-+-{dconf worker}
+        |                 |-{gdbus}
+        |                 |-{gmain}
+        |                 `-{timer}
+        |-gnome-shell-cal-+-{cal-client-dbus}
+        |                 |-{dconf worker}
+        |                 |-{gdbus}
+        |                 `-{gnome-shell-cal}
+        |-gnome-terminal--+-bash---vim
+        |                 |-2*[bash]
+        |                 |-bash---pstree
+        |                 |-gnome-pty-helpe
+        |                 |-{dconf worker}
+        |                 |-{gdbus}
+        |                 `-{gmain}
+        |-goa-daemon-+-{gdbus}
+        |            |-{gmain}
+        |            `-{pool}
+        |-gsd-printer---{gdbus}
+        |-gvfs-afc-volume-+-{gdbus}
+        |                 `-{gvfs-afc-volume}
+        |-gvfs-goa-volume---{gdbus}
+        |-gvfs-gphoto2-vo---{gdbus}
+        |-gvfs-mtp-volume---{gdbus}
+        |-gvfs-udisks2-vo-+-{gdbus}
+        |                 `-{gmain}
+        |-gvfsd---{gdbus}
+        |-gvfsd-fuse-+-{gdbus}
+        |            |-{gvfs-fuse-sub}
+        |            `-2*[{gvfsd-fuse}]
+        |-gvfsd-metadata---{gdbus}
+        |-minissdpd
+        |-mission-control-+-{dconf worker}
+        |                 `-{gdbus}
+        |-mysqld_safe---mysqld---16*[{mysqld}]
+        |-packagekitd-+-{gdbus}
+        |             `-{gmain}
+        |-polkitd-+-{gdbus}
+        |         `-{gmain}
+        |-pulseaudio-+-{alsa-sink-ALC28}
+        |            |-{alsa-sink-HDMI }
+        |            `-{alsa-source-ALC}
+        |-rpc.idmapd
+        |-rpc.statd
+        |-rpcbind
+        |-rsyslogd-+-{in:imklog}
+        |          |-{in:imuxsock}
+        |          `-{rs:main Q:Reg}
+        |-rtkit-daemon---2*[{rtkit-daemon}]
+        |-sshd
+        |-start-pulseaudi---xprop
+        |-systemd---(sd-pam)
+        |-systemd-journal
+        |-systemd-logind
+        |-systemd-udevd
+        |-tracker-store-+-{dconf worker}
+        |               |-{gdbus}
+        |               |-{gmain}
+        |               `-4*[{pool}]
+        |-udisksd-+-{cleanup}
+        |         |-{gdbus}
+        |         |-{gmain}
+        |         `-{probing-thread}
+        |-upowerd-+-{gdbus}
+        |         `-{gmain}
+        `-wpa_supplicant
